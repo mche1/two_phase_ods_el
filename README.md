@@ -17,7 +17,7 @@ Two-phase outcome dependent sampling (ODS) is widely used in many fields, especi
       publisher={The Institute of Mathematical Statistics and the Bernoulli Society}
     }
 
-This repository contains a simulation example with binary outcome (logistic regression), expensive covariate. The main function for 1000 replicates in logit_exp_8k.m and other .m files will be needed during running. 
+This repository contains a simulation example with binary outcome (logistic regression), expensive covariate. The main function for 1000 replicates with phase 1 sample size 8000 is in logit_exp_8k.m and other .m files will be needed during running. 
 
 Please cite as above. All rights reserved. 
 
