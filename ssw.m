@@ -1,0 +1,22 @@
+% function s=sumu(pop,para,alpha,c,theta)
+%  u=u(pop,para,alpha,c,theta)
+%  s=sum(u);
+% function [sume]=scmle(pop,param,alpha,c)
+% s=size(pop);
+% [e]=scondlee(pop,param,alpha,c);
+% lp=length(param);
+% sume=sum(e(:,1:lp));
+% %sume1(4:6)=sum(e(:,7:9))-sum(e(:,4:6));
+
+function [sume g]=ssw(pop,x,lb)
+s=size(pop);
+param=x(1:lb);
+alpha=x((lb+1):end);
+[e]=eelog(pop,param,alpha);
+lp=length(param);
+la=length(alpha);
+sume=zeros(1,lp+la);
+sume(1:lp)=sum(e(:,1:lp));
+sume(lp+1:lp+la)=sum(e(:,lp+1:lp+la))-sum(e(:,lp+la+1:end));%%%S_1(alpha)-S_2(beta,alpha)
+C=e'*e;
+g=[-C(1:lp,1:(lp+la));[C((lp+1):(lp+la),1:lp),-C((lp+1):(lp+la),(1+lp):(lp+la))+C((lp+la+1):(lp+2*la),(1+lp+la):(lp+2*la))]];
